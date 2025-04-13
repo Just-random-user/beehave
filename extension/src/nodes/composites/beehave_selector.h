@@ -37,7 +37,7 @@ namespace godot {
 class BeehaveSelector : public BeehaveComposite {
 	GDCLASS(BeehaveSelector, BeehaveComposite);
 
-	int last_execution_index = 0;
+	int last_execution_index;
 
 protected:
 	static void _bind_methods();

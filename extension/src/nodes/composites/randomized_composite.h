@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  sequence_star.h                                                    */
+/*  randomized_composite.h                                                */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                               BEEHAVE                                  */
@@ -27,29 +27,29 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#ifndef SEQUENCE_STAR_H
-#define SEQUENCE_STAR_H
+#ifndef RANDOMIZED_COMPOSITE_H
+#define RANDOMIZED_COMPOSITE_H
 
 #include "nodes/composites/beehave_composite.h"
 
 namespace godot {
 
-class SequenceStar : public BeehaveComposite {
-	GDCLASS(SequenceStar, BeehaveComposite);
+class RandomizedComposite : public BeehaveComposite {
+    GDCLASS(RandomizedComposite, BeehaveComposite);
 
-	int successful_index;
+    TypedArray<Node> children_bag;
 
-	void reset();
+    TypedArray<Node> _weighted_shuffle(TypedArray<Node> items, TypedArray<int> weights);
 
 protected:
-	static void _bind_methods();
+    static void _bind_methods();
 
 public:
-	SequenceStar();
-	~SequenceStar();
+    RandomizedComposite();
+    ~RandomizedComposite();
 
-	BeehaveTickStatus tick(Ref<BeehaveContext> context);
+    TypedArray<Node> get_shuffled_children();
 };
 }// namespace godot
 
-#endif // SEQUENCE_STAR_H
+#endif // RANDOMIZED_COMPOSITE_H

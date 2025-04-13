@@ -31,7 +31,8 @@
 
 using namespace godot;
 
-BeehaveSelector::BeehaveSelector() {
+BeehaveSelector::BeehaveSelector():
+last_execution_index(0) {
 
 }
 
